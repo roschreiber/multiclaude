@@ -55,3 +55,4 @@ git clone https://github.com/roschreiber/multiclaude
 cd multiclaude
 go build ./cmd/multiclaude
 ```
+<sub align="center">Not affiliated with, endorsed by, sponsored by, or produced by Anthropic PBC. Claude is a trademark of Anthropic PBC.</sub>
