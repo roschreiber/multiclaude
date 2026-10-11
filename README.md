@@ -42,7 +42,7 @@ the sidebar lists every session with its project and what it last did. move with
 
 ## themes
 
-press `,` to open the settings and pick a theme. there's a light one too if you're like [that](https://www.youtube.com/watch?v=ybaK3y_6YXg)...
+press `,` to open the settings and pick a theme. there's a support for light mode terminals too if you're like [that](https://www.youtube.com/watch?v=ybaK3y_6YXg)...
 
 <p align="center"><img src="mediakit/themes.gif" alt="theme switcher" width="800"></p>
 
