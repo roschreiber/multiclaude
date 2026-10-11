@@ -16,7 +16,7 @@ type Theme struct {
 	LogoShadow string
 }
 
-var themeNames = []string{"claude", "midnight", "gruvbox", "solarized", "nord", "catppuccin", "paper"}
+var themeNames = []string{"claude", "midnight", "gruvbox", "solarized", "nord", "catppuccin", "dracula", "rose pine", "paper"}
 
 var themes = map[string]Theme{
 	"claude":    {"#D97757", "#ECE8DF", "#8A8580", "#4A4744", "#2B2826", "#1A1918", "#9ECE6A", "#E06C75", "#F2B35B", "#7AA2F7", "#9C5038"},
@@ -28,6 +28,10 @@ var themes = map[string]Theme{
 
 	// catppuccin mocha, https://catppuccin.com/palette
 	"catppuccin": {"#CBA6F7", "#CDD6F4", "#7F849C", "#45475A", "#313244", "#11111B", "#A6E3A1", "#F38BA8", "#F9E2AF", "#89B4FA", "#585B70"},
+	// https://draculatheme.com/spec
+	"dracula": {"#FF79C6", "#F8F8F2", "#6272A4", "#44475A", "#44475A", "#282A36", "#50FA7B", "#FF5555", "#F1FA8C", "#8BE9FD", "#BD93F9"},
+	// https://rosepinetheme.com/palette
+	"rose pine": {"#EBBCBA", "#E0DEF4", "#908CAA", "#403D52", "#26233A", "#191724", "#9CCFD8", "#EB6F92", "#F6C177", "#C4A7E7", "#EB6F92"},
 }
 
 func applyTheme(name string) {
