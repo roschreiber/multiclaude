@@ -16,7 +16,7 @@ type Theme struct {
 	LogoShadow string
 }
 
-var themeNames = []string{"claude", "midnight", "gruvbox", "solarized", "nord", "paper"}
+var themeNames = []string{"claude", "midnight", "gruvbox", "solarized", "nord", "catppuccin", "paper"}
 
 var themes = map[string]Theme{
 	"claude":    {"#D97757", "#ECE8DF", "#8A8580", "#4A4744", "#2B2826", "#1A1918", "#9ECE6A", "#E06C75", "#F2B35B", "#7AA2F7", "#9C5038"},
@@ -25,6 +25,9 @@ var themes = map[string]Theme{
 	"solarized": {"#CB4B16", "#EEE8D5", "#93A1A1", "#586E75", "#073642", "#002B36", "#859900", "#DC322F", "#B58900", "#268BD2", "#8A3410"},
 	"nord":      {"#88C0D0", "#ECEFF4", "#8F99AB", "#434C5E", "#3B4252", "#2E3440", "#A3BE8C", "#BF616A", "#EBCB8B", "#81A1C1", "#4C7480"},
 	"paper":     {"#C4552F", "#3B3A36", "#7A756C", "#BDB6A6", "#E8E2D2", "#FFFFFF", "#4E8A1E", "#C2362E", "#B87500", "#2F5FD0", "#E0A38E"},
+
+	// catppuccin mocha, https://catppuccin.com/palette
+	"catppuccin": {"#CBA6F7", "#CDD6F4", "#7F849C", "#45475A", "#313244", "#11111B", "#A6E3A1", "#F38BA8", "#F9E2AF", "#89B4FA", "#585B70"},
 }
 
 func applyTheme(name string) {
