@@ -1,3 +1,4 @@
 *.exe
 *.exe~
 assets/.build/
+dist/
