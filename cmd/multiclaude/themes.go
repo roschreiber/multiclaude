@@ -1,0 +1,46 @@
+package main
+
+import "github.com/charmbracelet/lipgloss"
+
+type Theme struct {
+	Accent     string
+	Text       string
+	Muted      string
+	Faint      string
+	Selected   string
+	Ink        string
+	Green      string
+	Red        string
+	Yellow     string
+	Blue       string
+	LogoShadow string
+}
+
+var themeNames = []string{"claude", "midnight", "gruvbox", "solarized", "nord", "paper"}
+
+var themes = map[string]Theme{
+	"claude":    {"#D97757", "#ECE8DF", "#8A8580", "#4A4744", "#2B2826", "#1A1918", "#9ECE6A", "#E06C75", "#F2B35B", "#7AA2F7", "#9C5038"},
+	"midnight":  {"#7AA2F7", "#C0CAF5", "#7A82A8", "#3B4261", "#1F2335", "#15161E", "#9ECE6A", "#F7768E", "#E0AF68", "#7DCFFF", "#3D59A1"},
+	"gruvbox":   {"#FE8019", "#EBDBB2", "#A89984", "#504945", "#3C3836", "#1D2021", "#B8BB26", "#FB4934", "#FABD2F", "#83A598", "#AF5A12"},
+	"solarized": {"#CB4B16", "#EEE8D5", "#93A1A1", "#586E75", "#073642", "#002B36", "#859900", "#DC322F", "#B58900", "#268BD2", "#8A3410"},
+	"nord":      {"#88C0D0", "#ECEFF4", "#8F99AB", "#434C5E", "#3B4252", "#2E3440", "#A3BE8C", "#BF616A", "#EBCB8B", "#81A1C1", "#4C7480"},
+	"paper":     {"#C4552F", "#3B3A36", "#7A756C", "#BDB6A6", "#E8E2D2", "#FFFFFF", "#4E8A1E", "#C2362E", "#B87500", "#2F5FD0", "#E0A38E"},
+}
+
+func applyTheme(name string) {
+	t, found := themes[name]
+	if !found {
+		t = themes["claude"]
+	}
+	orange = lipgloss.Color(t.Accent)
+	cream = lipgloss.Color(t.Text)
+	muted = lipgloss.Color(t.Muted)
+	faint = lipgloss.Color(t.Faint)
+	selectedBg = lipgloss.Color(t.Selected)
+	ink = lipgloss.Color(t.Ink)
+	green = lipgloss.Color(t.Green)
+	red = lipgloss.Color(t.Red)
+	yellow = lipgloss.Color(t.Yellow)
+	blue = lipgloss.Color(t.Blue)
+	logoShadow = lipgloss.Color(t.LogoShadow)
+}
