@@ -73,7 +73,7 @@ func startTerminal(container *devcontainer.Container, folder, id string, resume 
 			return nil, err
 		}
 		command = claudePath
-		args = []string{flag, id}
+		args = []string{flag, id, "--settings", CCPath()}
 		dir = folder
 	} else {
 		dockerPath, err := findProgram("docker")

@@ -1,6 +1,12 @@
 package main
 
-import "github.com/charmbracelet/lipgloss"
+import (
+	"encoding/json"
+	"os"
+	"path/filepath"
+
+	"github.com/charmbracelet/lipgloss"
+)
 
 type Theme struct {
 	Accent     string
@@ -50,4 +56,36 @@ func applyTheme(name string) {
 	yellow = lipgloss.Color(t.Yellow)
 	blue = lipgloss.Color(t.Blue)
 	logoShadow = lipgloss.Color(t.LogoShadow)
+	writeCCTheme(name, t)
+}
+
+func CCPath() string {
+	return filepath.Join(filepath.Dir(configPath()), "claude-settings.json")
+}
+
+func writeCCTheme(name string, t Theme) {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return
+	}
+	base := "dark"
+	if name == "paper" { 
+		base = "light"
+	}
+	data, _ := json.MarshalIndent(map[string]any{
+		"name": "multiclaude",
+		"base": base,
+		"overrides": map[string]string{
+			"claude": t.Accent, "clawd_body": t.Accent, "text": t.Text, "inactive": t.Muted, "subtle": t.Faint,
+			"promptBorder": t.Muted, "inverseText": t.Ink,
+			"success": t.Green, "error": t.Red, "warning": t.Yellow,
+			"suggestion": t.Blue, "planMode": t.Blue,
+		},
+	}, "", "  ")
+	dir := filepath.Join(home, ".claude", "themes")
+	os.MkdirAll(dir, 0o755)
+	os.WriteFile(filepath.Join(dir, "multiclaude.json"), data, 0o644)
+
+	os.MkdirAll(filepath.Dir(CCPath()), 0o755)
+	os.WriteFile(CCPath(), []byte(`{"theme":"custom:multiclaude"}`), 0o644)
 }
