@@ -202,7 +202,9 @@ func (m *model) footer() string {
 	var parts []string
 	if m.focused {
 		parts = append(parts, keyHint("ctrl+q", "back to list"))
-		parts = append(parts, keyHint("ctrl+↑↓", "switch between live sessions"))
+		if len(m.terminals) > 1 {
+			parts = append(parts, keyHint("ctrl+↑↓", "switch between live sessions"))
+		}
 		if s := m.selected(); s != nil && m.terminals[s.ID] != nil && m.terminals[s.ID].scroll > 0 {
 			parts = append(parts, colored(yellow).Render("scrolled up · type to jump back"))
 		}
@@ -216,7 +218,9 @@ func (m *model) footer() string {
 		parts = append(parts, keyHint("tab", "next"))
 		parts = append(parts, keyHint("n", "new"))
 		parts = append(parts, keyHint(",", "settings"))
-		parts = append(parts, keyHint("x", "close"))
+		if s := m.selected(); s != nil && m.terminals[s.ID] != nil {
+			parts = append(parts, keyHint("x", "close"))
+		}
 		parts = append(parts, keyHint("/", "filter"))
 		parts = append(parts, keyHint("q", "quit"))
 		if m.filter != "" {
